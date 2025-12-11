@@ -4,3 +4,120 @@
     <link rel="stylesheet" href="estils.css">
        <meta charset="UTF-8">
        <title>Principal</title>
+       <title>Formulari</title>
+   <body>
+  <header>
+    <h1>Formulari Personalitzat</h1>
+    <nav>
+      <a href="index.html">Formulari</a>
+      <a href="interaccio.html">Interacció</a>
+    </nav>
+  </header>
+
+  <main>
+    <form>
+      <!-- Nom complet -->
+      <div>
+        <label for="nom">Nom complet:</label>
+        <input type="text" id="nom" name="nom" required pattern="[A-Za-zÀ-ÿ\s]{3,50}" title="Nom entre 3 i 50 lletres">
+      </div>
+
+      <!-- Correu electrònic -->
+      <div>
+        <label for="email">Correu electrònic:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <!-- Telèfon -->
+      <div>
+        <label for="telefon">Telèfon:</label>
+        <input type="tel" id="telefon" name="telefon" pattern="[0-9]{9}" title="9 dígits">
+      </div>
+
+      <!-- Edat -->
+      <div>
+        <label for="edat">Edat:</label>
+        <input type="number" id="edat" name="edat" min="0" max="120" step="1">
+      </div>
+
+      <!-- Data de naixement -->
+      <div>
+        <label for="data">Data de naixement:</label>
+        <input type="date" id="data" name="data">
+      </div>
+
+      <!-- Franja horària -->
+      <div>
+        <label for="hora">Franja horària:</label>
+        <input type="time" id="hora" name="hora">
+      </div>
+
+      <!-- Color preferit -->
+      <div>
+        <label for="color">Color preferit:</label>
+        <input type="color" id="color" name="color">
+      </div>
+
+      <!-- Control lliscant -->
+      <div>
+        <label for="range">Control lliscant:</label>
+        <input type="range" id="range" name="range" min="0" max="100">
+      </div>
+      
+      <!-- Checkbox (aficions) -->
+      <label>Aficions:</label>
+      <div class="checkbox-group">
+      <input type="checkbox" id="lectura" name="aficions" value="lectura">
+      <label for="lectura">Lectura</label>
+
+      <input type="checkbox" id="esport" name="aficions" value="esport">
+      <label for="esport">Esport</label>
+
+      <input type="checkbox" id="musica" name="aficions" value="musica">
+      <label for="musica">Música</label>
+      </div>
+
+      <!-- Radio (nivell d’estudis) -->
+      <label>Nivell d’estudis:</label>
+      <div class="radio-group">
+      <input type="radio" id="primaria" name="estudis" value="primaria" required>
+      <label for="primaria">Primària</label>
+
+      <input type="radio" id="secundaria" name="estudis" value="secundaria">
+      <label for="secundaria">Secundària</label>
+
+      <input type="radio" id="universitat" name="estudis" value="universitat">
+      <label for="universitat">Universitat</label>
+      </div>
+
+      <!-- País (select) -->
+      <div>
+        <label for="pais">País:</label>
+        <select id="pais" name="pais" required>
+          <option value="">Selecciona un país</option>
+          <option value="espanya">Espanya</option>
+          <option value="franca">França</option>
+          <option value="alemanya">Alemanya</option>
+          <option value="italia">Itàlia</option>
+        </select>
+      </div>
+
+      <!-- Comentaris -->
+      <div>
+        <label for="comentaris">Comentaris:</label>
+        <textarea id="comentaris" name="comentaris" rows="4"></textarea>
+      </div>
+
+      <!-- Botons -->
+      <div class="buttons">
+        <button type="submit">Enviar</button>
+        <button type="reset">Esborrar</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>Formulari amb Flexbox i CSS sense JavaScript</p>
+  </footer>
+</body>
+</html>

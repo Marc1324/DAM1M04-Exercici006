@@ -4,3 +4,60 @@
     <link rel="stylesheet" href="estils.css">
        <meta charset="UTF-8">
        <title>Principal</title>
+      <title>Interacció</title>
+   <body id="pagina-interaccio">
+  <header>
+    <h1>Interactivitat CSS Sense JavaScript</h1>
+    <!-- Botó alternador per mòbil -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <nav class="menu">
+      <a href="index.html">Formulari</a>
+      <a href="interaccio.html">Interactivitat</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===== Pestanyes CSS ===== -->
+    <section class="tabs">
+      <!-- Inputs radio amagats -->
+      <input type="radio" name="tab" id="tab1" checked>
+      <input type="radio" name="tab" id="tab2">
+      <input type="radio" name="tab" id="tab3">
+
+      <!-- Labels com a botons -->
+      <div class="tab-buttons">
+        <label for="tab1">Pestanya 1</label>
+        <label for="tab2">Pestanya 2</label>
+        <label for="tab3">Pestanya 3</label>
+      </div>
+
+      <!-- Continguts -->
+      <div class="tab-content">
+        <div class="content-1">Contingut de la Pestanya 1</div>
+        <div class="content-2">Contingut de la Pestanya 2</div>
+        <div class="content-3">Contingut de la Pestanya 3</div>
+      </div>
+    </section>
+
+    <!-- ===== Component extra: Flip Card ===== -->
+    <section class="flip-card-section">
+      <input type="checkbox" id="flip-card-toggle">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <label for="flip-card-toggle">Front (Clica per girar)</label>
+          </div>
+          <div class="flip-card-back">
+            <label for="flip-card-toggle">Back (Clica per tornar)</label>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Interacció amb CSS sense JavaScript | Flexbox i responsive</p>
+  </footer>
+</body>
+</html>
