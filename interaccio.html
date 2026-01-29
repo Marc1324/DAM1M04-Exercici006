@@ -4,59 +4,76 @@
     <link rel="stylesheet" href="estils.css">
        <meta charset="UTF-8">
       <title>Interacció</title>
-   <body id="pagina-interaccio">
-  <header>
-    <h1>Interaccio</h1>
-    <!-- Botó alternador per mòbil -->
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="menu-icon">&#9776;</label>
-    <nav class="menu">
-      <a href="index.html">Formulari</a>
-      <a href="interaccio.html">Interaccio</a>
-    </nav>
-  </header>
+    <link rel="stylesheet" href="estils.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body id="pagina-interaccio">
 
-  <main>
-    <!-- ===== Pestanyes CSS ===== -->
-    <section class="tabs">
-      <!-- Inputs radio amagats -->
-      <input type="radio" name="tab" id="tab1" checked>
-      <input type="radio" name="tab" id="tab2">
-      <input type="radio" name="tab" id="tab3">
+    <header class="main-header">
+        <div class="header-container">
+            <h1 class="logo">Interacció</h1>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
 
-      <!-- Labels com a botons -->
-      <div class="tab-buttons">
-        <label for="tab1">Pestanya 1</label>
-        <label for="tab2">Pestanya 2</label>
-        <label for="tab3">Pestanya 3</label>
-      </div>
-
-      <!-- Continguts -->
-      <div class="tab-content">
-        <div class="content-1">Inazuma Eleven</div>
-        <div class="content-2">Attak on titan</div>
-        <div class="content-3">Kimetsu no Yaiba</div>
-      </div>
-    </section>
-
-    <!-- ===== Component extra: Flip Card ===== -->
-    <section class="flip-card-section">
-      <input type="checkbox" id="flip-card-toggle">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <label for="flip-card-toggle">Front (Clica per girar)</label>
-          </div>
-          <div class="flip-card-back">
-            <label for="flip-card-toggle">Back (Clica per tornar)</label>
-          </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Formulari</a>
+                <a href="interaccio.html" class="nav-link active">Interacció</a>
+            </nav>
         </div>
-      </div>
-    </section>
-  </main>
+    </header>
 
-  <footer>
-    <p>Interacció</p>
-  </footer>
+    <main class="container">
+        <section class="tabs-container">
+            <input type="radio" name="tab" id="tab1" checked hidden>
+            <input type="radio" name="tab" id="tab2" hidden>
+            <input type="radio" name="tab" id="tab3" hidden>
+
+            <div class="tab-buttons">
+                <label for="tab1" class="tab-label">Inazuma</label>
+                <label for="tab2" class="tab-label">Attack on Titan</label>
+                <label for="tab3" class="tab-label">Kimetsu</label>
+            </div>
+
+            <div class="tab-content">
+                <article class="content content-1">
+                    <h3>Inazuma Eleven</h3>
+                    <p>Futbol i supertècniques espectaculars.</p>
+                </article>
+                <article class="content content-2">
+                    <h3>Attack on Titan</h3>
+                    <p>Una lluita per la supervivència de la humanitat.</p>
+                </article>
+                <article class="content content-3">
+                    <h3>Kimetsu no Yaiba</h3>
+                    <p>L'aventura de Tanjiro contra els dimonis.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="card-wrapper">
+            <input type="checkbox" id="flip-card-toggle" hidden>
+            <label for="flip-card-toggle" class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="card-badge"></div>
+                        <p>Part frontal</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Part posterior</p>
+                    </div>
+                </div>
+            </label>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Interaccio</p>
+    </footer>
+
 </body>
 </html>

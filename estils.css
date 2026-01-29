@@ -258,266 +258,157 @@ button[type="reset"] {
 
 /*INTERACCIO*/
 
-/* ===== Estil general ===== */
+/* CAMBIA ESTOS COLORES POR LOS DE TU OTRA PÁGINA */
+:root {
+    --color-principal: #383838;    /* Color de fondo del header y botones */
+    --color-secundari: #f1f5f9;    /* Fondo de la página */
+    --color-text-clar: #ffffff;    /* Color de texto sobre fondos oscuros */
+    --color-text-fosc: #333333;    /* Color de texto general */
+    --color-accent: #f63b3b;       /* Color para detalles o hover */
+}
+
+/* Estils generals */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-secundari);
+    color: var(--color-text-fosc);
+    margin: 0;
 }
 
-header, footer {
-  background-color: #333;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  position: relative;
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  transition: max-height 0.3s ease;
+/* Header Modern */
+.main-header {
+    background-color: var(--color-principal);
+    color: var(--color-text-clar);
+    padding: 1rem 0;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  transition: background 0.3s, transform 0.3s;
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-nav a:hover {
-  background-color: #555;
-  transform: scale(1.05);
+.menu a {
+    color: var(--color-text-clar);
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
 }
 
-/* ===== Botó toggle menú mòbil ===== */
-#menu-toggle {
-  display: none;
-}
-
-.menu-icon {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
-/* Mòbil */
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    max-height: 0;
+/* Pestanyes (Tabs) */
+.tabs-section {
+    background: white;
+    border-radius: 8px;
     overflow: hidden;
-  }
-
-  #menu-toggle:checked + .menu-icon + nav {
-    max-height: 500px;
-  }
-
-  .menu-icon {
-    display: block;
-  }
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
 }
 
-/* ===== Tabs CSS ===== */
-.tabs input[type="radio"] {
-  display: none;
+input[name="tab"], #menu-toggle, #flip-card-toggle {
+    display: none; /* Amaguem els inputs */
 }
 
 .tab-buttons {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    background: #e2e8f0;
 }
 
 .tab-buttons label {
-  padding: 0.5rem 1rem;
-  border: 2px solid #007BFF;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.tab-buttons label:hover {
-  background-color: #007BFF;
-  color: white;
+/* Lògica de colors de les pestanyes */
+#tab1:checked ~ .tab-buttons label[for="tab1"],
+#tab2:checked ~ .tab-buttons label[for="tab2"],
+#tab3:checked ~ .tab-buttons label[for="tab3"] {
+    background: var(--color-principal);
+    color: var(--color-text-clar);
 }
 
-.tab-content > div {
-  display: none;
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 2px solid #007BFF;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.content {
+    display: none;
+    padding: 30px;
+    animation: fadeEffect 0.5s;
 }
 
-/* Mostrar pestanya activa amb :has() */
-#pagina-interaccio:has(#tab1:checked) .content-1 { display: block; }
-#pagina-interaccio:has(#tab2:checked) .content-2 { display: block; }
-#pagina-interaccio:has(#tab3:checked) .content-3 { display: block; }
-
-/* ===== Inputs generals (només si n’hi ha dins tabs o flip card) ===== */
-input, select, textarea {
-  padding: 0.5rem;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
+#tab1:checked ~ .tab-content .content-1,
+#tab2:checked ~ .tab-content .content-2,
+#tab3:checked ~ .tab-content .content-3 {
+    display: block;
 }
 
-/* Estats visuals */
-input:focus, select:focus, textarea:focus {
-  border-color: #007BFF;
-  outline: none;
-  transform: scale(1.02);
-  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+@keyframes fadeEffect {
+    from {opacity: 0;} to {opacity: 1;}
 }
 
-input:invalid {
-  border-color: red;
-  background-color: #ffe5e5;
-}
-
-input:valid {
-  border-color: green;
-  background-color: #e5ffe5;
-}
-
-input:required {
-  border-left: 5px solid #007BFF;
-}
-
-/* ===== Checkbox i Radio personalitzats ===== */
-.checkbox-group label,
-.radio-group label {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.checkbox-group input,
-.radio-group input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Checkbox estil */
-.checkbox-group label::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #007BFF;
-  border-radius: 4px;
-  background-color: white;
-  transition: all 0.3s ease;
-}
-
-.checkbox-group input:checked + label::after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  width: 10px;
-  height: 10px;
-  background-color: #007BFF;
-  border-radius: 2px;
-}
-
-/* Radio estil */
-.radio-group label::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #28a745;
-  border-radius: 50%;
-  background-color: white;
-  transition: all 0.3s ease;
-}
-
-.radio-group input:checked + label::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 5px;
-  width: 8px;
-  height: 8px;
-  background-color: #28a745;
-  border-radius: 50%;
-}
-
-/* ===== Flip card ===== */
-.flip-card-section {
-  margin: 2rem 0;
-  display: flex;
-  justify-content: center;
+/* Flip Card Millorada */
+.flip-section {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
 }
 
 .flip-card {
-  background-color: transparent;
-  width: 200px;
-  height: 200px;
-  perspective: 1000px;
+    width: 300px;
+    height: 200px;
+    display: block;
+    cursor: pointer;
 }
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
-#flip-card-toggle:checked ~ .flip-card .flip-card-inner {
-  transform: rotateY(180deg);
+#flip-card-toggle:checked + .flip-card .flip-card-inner {
+    transform: rotateY(180deg);
 }
 
 .flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border: 2px solid #28a745;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .flip-card-front {
-  background-color: #28a745;
-  color: white;
+    background-color: var(--color-principal);
+    color: var(--color-text-clar);
 }
 
 .flip-card-back {
-  background-color: #f1f1f1;
-  color: black;
-  transform: rotateY(180deg);
+    background-color: var(--color-accent);
+    color: var(--color-text-clar);
+    transform: rotateY(180deg);
 }
 
-.flip-card label {
-  cursor: pointer;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 600px) {
-  .tab-buttons {
-    flex-direction: column;
-  }
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
 }
